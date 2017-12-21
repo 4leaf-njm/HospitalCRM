@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.info-box {margin: 20px 0 15px 0; padding: 24px 30px 22px 30px; background-color: #efeff3; color: #6e7179; font-size: 16px; line-height: 26px;}
+.info-box .title {margin-bottom: 25px; font-size: 24px; display: block; padding: 18px 0 5px 0; color: #115bab; font-weight: bold; line-height: 22px;}
+.info-box .info-title {margin-bottom: 10px; font-size: 24px; font-weight: normal; color: #1b1d21;}
+.info-box .info-list {list-style: none; margin: -3px 0; padding: 0; text-align: left;}
+.info-box .info-list li {padding: 0 0 0 10px; font-size: 16px; line-height: 28px; color: #6e7179; margin: 3px 0;}
+.info-box .reserv-info{display: block; margin: 15px 0; font-size: 16px; font-weight: bold; color: #115bab;}
+.info-box .tip-txt {color: #115bab;}
+.content-box .section-heading {margin: 10px 0 0 0; padding: 20px 0 20px;}
+.content-box .section-heading-title {color: #333b43; font-size: 24px; font-family: 'Nanum Barun Gothic', sans-serif;}
+.content-box .no-reserve {width: 100%; margin: 0 0 20px 0; padding: 40px 0; font-size: 16px; text-align: center; color: #6e7179; background: #efeff3;}
+.reserve-list{list-style: none; padding-left: 0px;}
+.reserve-list .list-item {width: 100%; margin: 0 0 20px 0;}
+.reserve-list .item-content {padding-top: 10px; background: #fff; }
+.reserve-list .reserve-info {margin: 13px 0 0; padding: 0 30px;}
+.reserve-list .doctor-img{position: relative; width: 143px; height: 142px;float: left; margin: 0 50px 0 10px; text-align: center;}
+.reserve-list .doctor-img img {width: 143px; height: 142px; vertical-align: middle;}
+.reserve-list .doctor-img .masking {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: url("../../images/commons/img_mask.png") 0 0 no-repeat}
+.reserve-list .content-textarea {margin-left: 0px; padding: 10px 0 0px 0;}
+.reserve-list .content-title {font-size: 22px; line-height: 1.2; color: #115bab; margin: 8px 0 0 0; font-family: 'Nanum Barun Gothic', sans-serif;}
+.reserve-list .content-title .depart {font-size: 18px; margin-left: 5px; color: #232323;}
+.reserve-list .content-title .status {font-size: 14px; margin-left: 6px; color: #fff; font-family: 'Nanum Barun Gothic', sans-serif;
+                                      width: 40px; padding: 3px 6px; text-align: center; background: #5983fd; border-radius: 5px;}
+.reserve-list .content-text {margin: 17px 0 0 0; color: #62656b; font-family: 'Nanum Barun Gothic', sans-serif;}
+.reserve-list .item-footer {height: 48px; background: #fff; text-align: center;}
+.reserve-list .item-footer a {display: block; width: 20%; height: 43px; font-size: 17px; background: #fff; color: #44484f; padding: 0 15px; text-align: center; 
+                              font-family: 'Nanum Barun Gothic', sans-serif; line-height: 43px; margin: 5px auto; cursor: pointer;}
+.reserve-list .item-footer a:hover {background: #f6f6f6}
+.reserve-list .item-footer p {display: block; width: 50%; height: 43px; font-size: 17px; background: #fff; color: #44484f; padding: 0 15px; text-align: center; 
+                              font-family: 'Nanum Barun Gothic', sans-serif; line-height: 43px; margin: 5px auto;}                         

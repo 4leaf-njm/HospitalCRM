@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+.join_box {
+	width: 1050px; 
+	margin: 100px auto;
+	position: relative;
+}
+
+.doc_box {
+	width: 800px;
+	display: inline-block;
+}
+
+.doc_box label {
+	padding-top: 5px;
+}
+
+.image_box {
+	width: 250px;
+	display: inline-block;
+	position: absolute;
+	top: 120px; 
+	right: -55px;
+}
+
+.image_box .image_title {
+	width: 200px;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.image_box .image{
+	width: 200px;
+	height: 250px;
+	border: 1px solid #BDBDBD;
+	border-radius: 6px;
+}
+
+.image_box .image img{
+	width: 200px;
+	height: 250px;
+	border: 0;
+}
+
+.file_box {
+	margin: 20px 0;
+	margin-left: 60px;
+}
+
+.file_box label{
+	display: inline-block;
+	padding: 10px 20px;;
+	color: #999;
+	font-size: inheight;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;	
+}
+
+.file_box input[type="file"] {
+	position: absolute;
+	width: 1px; 
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+.doc_box .star {
+	color: red;
+}
+
+.form-control {width: 300px; display: inline-block;}
+.form-control.two {width: 135px;}
+.form-control.three {width: 84px;}
+.tip-txt {display: inline-block; margin-left: 10px;}
+
+input[type="text"]:read-only { background-color: #F6F6F6; }

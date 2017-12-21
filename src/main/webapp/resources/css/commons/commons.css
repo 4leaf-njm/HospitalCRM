@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+body, h1, h2, h3, h4, h5, h6 {font-family: 'Nanum Barun Gothic', sans-serif;}
+.nav-main .nav strong{font-size: 15px; font-weight: normal; font-family: 'Nanum Barun Gothic', sans-serif;}
+.wrapper {background-color: #f7f7f9 !important;}
+.content-wrapper{background: #f7f7f9 !important;}
+.content{background: #f7f7f9 !important; padding: 0 65px; }
+
+.main-footer {clear:both; background: #fafafa; border-top: 1px solid #E7E7E7; margin-left: 0; padding: 20px 0 0 0;  z-index: 2 !important; position: relative;}
+.main-footer .footer-top {width: 770px; margin: 0 auto;}
+.main-footer .footer-left {width: 490px; margin: 0 0 35px 0;}
+.main-footer .footer-left .policy-list a {color: #818181; font-weight: bolder; font-size: 11px;}
+.main-footer .footer-right {width: 280px;}
+.main-footer .footer-right .counsel_title {color: #aaaaaa; font-size: 15px;}
+.main-footer .footer-right .counsel_tel {color: #666666; font-size: 16px; margin-left: 15px;}
+.main-footer .footer-bottom {width: 100%; height: 100px; margin-left: 0; margin-right: 0; background: #51626d;}
+.main-footer .footer-bottom p {margin-top: 10px;}
+.main-footer .footer-bottom .text_copy {margin-top: 15px; color: #fff}
+.main-footer .footer-bottom .address {font-size: 11px;}
+.main-footer .footer-bottom .work_date {font-size: 12px;}
+
+.main-sidebar {background-color: #f7f7f9 !important; min-height: 100% !important; z-index: 1; top:10px;}
+.main-sidebar li {border-bottom: 1px solid black !important; }
+.main-sidebar li>a {color: #333 !important; font-family: 'Nanum Barun Gothic', sans-serif;}
+.main-sidebar a:hover {background-color: #85bad9 !important; color: #fff !important}
+.main-sidebar a:visited {background-color: #85bad9 !important;}
+.main-sidebar a:active {background-color: #85bad9 !important; color: #fff !important}
+
+.sidebar-menu >li:first-child {background-color: #f7f7f9 !important; border-bottom: 3px solid black !important;}
+.sidebar-menu>li.active>a {background: #85bad9 !important; color: #fff !important}
+.treeview-menu {background-color: #f7f7f9 !important;}
+.treeview-menu li {border-top: 1px solid black !important; border-bottom: 0px !important;}
+.treeview-menu > li > a {color: #555555; !important; text-indent: 15px; font-family: 'Nanum Barun Gothic', sans-serif;}
+/* modal */
+.vertical-alignment-helper {display: table; height: 100%; width: 100%;}
+.vertical-align-center {display: table-cell; vertical-align: middle;}
+.modal-content {width: inherit; height: inherit; margin: 0 auto;}
+.modal-content .modal-title {font-family: 'Nanum Barun Gothic', sans-serif;}
+.modal-content .modal-message {font-size: 17px; color: #44484f; font-family: 'Nanum Barun Gothic', sans-serif; padding-top: 20px;}
+.modal-footer button {width: 85px;}

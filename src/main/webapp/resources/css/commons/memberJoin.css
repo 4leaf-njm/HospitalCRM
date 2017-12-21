@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+.join_box {
+	width: 1000px;
+	margin: 100px auto;
+}
+
+.join_box .star{
+	color: red;
+}
+
+.form-control {width: 300px; display: inline-block;}
+.form-control.two {width: 136px;}
+.form-control.three {width: 83px;}
+.tip-txt {display: inline-block; margin-left: 10px;}
+
+input[type="text"]:read-only { background-color: #F6F6F6; }

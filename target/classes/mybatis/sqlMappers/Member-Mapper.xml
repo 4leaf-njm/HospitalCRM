@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member-Mapper">
+
+	<update id="insertMember" parameterType="member">
+		insert into MEMBER (mem_id, mem_pwd, mem_name, mem_pcode, mem_addr,mem_phone,mem_email,mem_birth)
+		values (#{mem_id},#{mem_pwd},#{mem_name}, #{mem_pcode}, #{mem_addr},#{mem_phone},#{mem_email},#{mem_birth})
+	</update>
+
+	<update id="updateMember" parameterType="member">
+		update MEMBER set mem_pwd =#{mem_pwd}, mem_name=#{mem_name}, mem_addr=#{mem_addr}, mem_phone=#{mem_phone}, mem_email=#{mem_email}, mem_birth=#{mem_birth}
+		where mem_id=#{mem_id}
+	</update>
+
+	<update id="deleteMember" parameterType="str">
+		update member set mem_use_YN='N'
+		where mem_id=#{mem_id}
+	</update>
+	
+	<update id="deleteAskMember" parameterType="str">
+		update member set mem_use_YN='R'
+		where mem_id=#{mem_id}
+	</update>
+
+	<select id="selectMemberList" resultType="member">
+		select * from member where order by mem_reg_date desc
+	</select>
+
+	<select id="selectMemberById" parameterType="str" resultType="member">
+		select * from MEMBER
+		where mem_id=#{mem_id}
+	</select>
+
+	<sql id="search">                                           
+		<if test = "searchType != null">                   
+			<if test = "searchType == 'mem_id'.toString()">     
+				where mem_id like '%'||#{keyword}||'%'            
+			</if>                                               
+			<if test = "searchType == 'mem_name'.toString()">   
+				where mem_name like '%'||#{keyword}||'%'		 
+			</if>                                               
+		</if>                                                 
+	</sql> 
+	
+	<select id="selectSearchMemberList" resultType="member">                                          
+		select * from member
+		<include refid="search"></include>                  
+		order by mem_reg_date desc
+	</select>
+
+	<select id="selectSearchMemberListCount" resultType="int">                                                                                                          
+		select count(mem_id) from member                                                                                                                   
+		<include refid="search"></include>
+	</select>
+	
+	<select id="selectMemberDelList" resultType="member">
+		select * from member where not MEM_USE_YN='Y' order by case when mem_use_yn in('R') then 0 else 1 end, MEM_REG_DATE desc
+	</select>
+	
+	<select id="selectMemberDelListCount" resultType="int">
+		select count(mem_id) from member where not MEM_USE_YN='Y'
+	</select>
+</mapper>
+	

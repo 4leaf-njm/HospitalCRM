@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+    	<typeAlias type="java.lang.String" alias="str"/>
+    	<typeAlias type="java.lang.Integer" alias="int"/>
+    	<typeAlias type="com.sysout.crm.domain.MemberVO" alias="member"/>
+    	<typeAlias type="com.sysout.crm.domain.DoctorVO" alias="doctor"/>
+    	<typeAlias type="com.sysout.crm.domain.AdminVO" alias="admin"/>
+    	<typeAlias type="com.sysout.crm.domain.DepartVO" alias="depart"/>
+    	<typeAlias type="com.sysout.crm.domain.DiagAndDoctorVO" alias="diag"/>
+    	<typeAlias type="com.sysout.crm.domain.ReserveAndDoctorVO" alias="reserve"/>
+    	<typeAlias type="com.sysout.crm.domain.ScheduleVO" alias="schedule"/>
+    	<typeAlias type="com.sysout.crm.domain.NoticeVO" alias="notice"/>
+    	<typeAlias type="com.sysout.crm.domain.QnaVO" alias="qna"/>
+    	<typeAlias type="com.sysout.crm.domain.QnaAnswerVO" alias="qna_answer"/>
+    	<typeAlias type="com.sysout.crm.domain.FaqVO" alias="faq"/>
+    </typeAliases>
+</configuration>

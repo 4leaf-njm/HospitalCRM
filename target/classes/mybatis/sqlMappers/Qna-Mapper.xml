@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Qna-Mapper">
+	
+	<select id="selectQnaByNum" parameterType="int" resultType="qna">
+		select * from qna_view where qna_num=#{qna_num}
+	</select>
+	
+	<select id="selectQnaAnswerByNum" parameterType="int" resultType="qna">
+		select * from qna_answer where answer_num=#{answer_num}
+	</select>
+	
+	<select id="selectQnaList" resultType="qna">
+		<![CDATA[
+			select * from qna
+			where qna_num>0
+			order by qna_num desc, qna_reg_date desc
+		]]> 
+	</select>
+	
+	<update id="insertQna" parameterType="qna">
+		insert into qna (qna_num, qna_title, qna_content, mem_id, qna_open_yn) 
+		values(seq_qna.nextval, #{qna_title}, #{qna_content}, #{mem_id}, #{qna_open_yn})
+		
+		
+	</update>
+	
+	<update id="insertQnaAnswer" parameterType="qna_answer">
+		insert into qna_answer (answer_num, qna_num, answer_content) 
+		values(seq_qna_answer.nextval, #{qna_num}, #{answer_content})
+	</update>
+	
+	<update id="updateQna" parameterType="qna">
+		update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, qna_open_yn=#{qna_open_yn}
+		where qna_num=#{qna_num}
+	</update>
+	
+	<update id="deleteQna" parameterType="int">
+		delete from qna where qna_num=#{qna_num}
+	</update>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and qna_title like '%'||#{keyword}||'%' <!-- CONCAT(CONCAT('%', #{keyword}), '%') -->
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and qna_content like '%'||#{keyword}||'%'
+			</if>
+			
+			<if test="searchType == 'tc'.toString()">
+				and (qna_title like '%'||#{keyword}||'%' or
+				   qna_content like '%'||#{keyword}||'%')
+			</if>
+			
+		</if>
+			</sql>
+		<select id="selectQnaListSearch" resultType="qna">
+		<![CDATA[
+			select *
+			from qna
+			where qna_num > 0 
+		]]>
+			<include refid="search"></include>
+			order by qna_num desc
+		
+	</select>
+	
+	<select id="selectQnaListSearchCount" resultType="int">
+		<![CDATA[
+			select count(qna_num)
+			from qna
+			where qna_num>0
+		]]>
+			<include refid="search"></include>
+	</select>
+	
+	<update id="updateUpHit" parameterType="int">
+		update qna set qna_hit = qna_hit+1 
+		where qna_num = #{qna_num}
+	</update>
+
+	</mapper>
+	

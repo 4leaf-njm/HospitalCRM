@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Doctor-Mapper">
+
+	<select id="selectDoctorList" resultType="doctor">
+		<![CDATA[
+		select * from doc_view
+		where doc_code>0
+		order by doc_code desc, doc_reg_date desc
+		]]>
+	</select>
+
+	<select id="selectDoctorListByDeptCode" parameterType="str" resultType="doctor">
+		select * from doc_view
+		where depart_code = #{depart_code}
+	</select>
+	
+	<select id="selectDoctorByCode" parameterType="str" resultType="doctor">
+		select * from doc_view
+		where doc_code = #{doc_code}
+	</select>
+	
+	<update id="insertDoctor" parameterType="doctor">
+		insert into DOCTOR (doc_code, doc_pwd, doc_name, doc_addr,doc_phone,doc_email,doc_birth,depart_code,doc_field,doc_image)
+		values (#{doc_code},#{doc_pwd},#{doc_name},#{doc_addr},#{doc_phone},#{doc_email},#{doc_birth},#{depart_code},#{doc_field},#{doc_image})
+	</update>
+	
+	<update id="updateDoctor" parameterType="doctor">
+		update DOCTOR set doc_pwd =#{doc_pwd}, doc_name=#{doc_name}, doc_addr=#{doc_addr}, doc_phone=#{doc_phone}, doc_email=#{doc_email}, doc_birth=#{doc_birth}, depart_code=#{depart_code}, doc_field=#{doc_field}, doc_image=#{doc_image}
+		where doc_code=#{doc_code}
+	</update>
+	
+	<update id="deleteDoctor" parameterType="str">
+		update doctor set doc_use_yn='N' where doc_code = #{doc_code}
+	</update>
+	
+	<update id="deleteAskDoctor" parameterType="str">
+		update doctor set doc_use_yn='R' where doc_code = #{doc_code}
+	</update>
+	
+	<sql id="search">                                           
+		<if test = "searchType != null">                   
+			<if test = "searchType == 'doc_code'.toString()">     
+				where doc_code like '%'||#{keyword}||'%'            
+			</if>                                               
+			<if test = "searchType == 'doc_name'.toString()">   
+				where doc_name like '%'||#{keyword}||'%'		 
+			</if>                                               
+		</if>                                                 
+	</sql>
+	
+	<select id="selectSearchDoctorList" resultType="doctor">                              
+		select * from doc_view
+		<include refid="search"></include>                  
+		order by depart_name desc
+	</select>                                                   
+	<select id="selectSearchDoctorListCount" resultType="int">                                                                                                                          
+		select count(doc_code) from doc_view                                                                                                
+		<include refid="search"></include>
+	</select>
+	
+	<select id="selectDoctorDelList" resultType="doctor">
+		select * from doc_view where not DOC_USE_YN='Y' order by case when doc_use_yn in('R') then 0 else 1 end, depart_name asc
+	</select>
+	
+	<select id="selectDoctorDelListCount" resultType="int">
+		select count(doc_code) from doc_view where not DOC_USE_YN='Y'
+	</select>
+</mapper>

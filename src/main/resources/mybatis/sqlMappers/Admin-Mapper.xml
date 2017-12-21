@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Admin-Mapper">
+
+	<update id="insertAdminLog" parameterType="admin">
+		insert into ADMIN (admin_code, admin_pwd, admin_name, admin_addr, admin_phone,admin_email,admin_birth)
+		values (#{admin_code},#{admin_pwd},#{admin_name}, #{admin_addr}, #{admin_phone},#{admin_email},#{admin_birth})
+	</update>
+	
+	<update id="updateAdmin" parameterType="admin">
+		update ADMIN set admin_pwd =#{admin_pwd}, admin_name=#{admin_name}, admin_addr=#{admin_addr}, admin_phone=#{admin_phone}, admin_email=#{admin_email}, admin_birth=#{admin_birth}
+		where admin_code=#{admin_code}
+	</update>
+	
+	<update id="deleteAdmin" parameterType="str">
+		delete from ADMIN where admin_code=#{admin_code}
+	</update>
+	
+	<select id="selectAdminByCode" parameterType="str" resultType="admin">
+		select * from ADMIN
+		where admin_code=#{admin_code}
+	</select>
+
+</mapper>

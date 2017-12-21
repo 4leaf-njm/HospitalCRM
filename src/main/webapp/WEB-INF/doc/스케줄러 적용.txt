@@ -1,0 +1,44 @@
+CREATE or replace PROCEDURE change_reserv
+is
+  change_status VARCHAR2(12);
+BEGIN
+  change_status := '진료대기';
+  update reservation
+  set reserv_status = change_status
+  where reserv_date < sysdate;
+end;
+
+exec change_reserv;
+BEGIN
+DBMS_SCHEDULER.CREATE_PROGRAM(
+  program_name => 'chage_program',
+  program_type => 'stored_procedure',
+  program_action => 'change_reserv',
+  number_of_arguments => 0,
+  enabled => true,
+  comments => '예약한 시간이 현재시각을 넘을때 진료대기로 변환');
+end;
+
+BEGIN
+DBMS_SCHEDULER.CREATE_SCHEDULE (
+  schedule_name => 'MIN_SCHEDULE',
+  start_date => NULL,
+  repeat_interval => 'FREQ=MINUTELY; INTERVAL=1',
+  end_date => NULL,
+  comments => '1분마다 수행');
+END;
+
+begin
+DBMS_SCHEDULER.CREATE_JOB (
+  job_name => 'my_job1',
+  program_name => 'chage_program',
+  schedule_name => 'MIN_SCHEDULE',
+  comments => '잡객체1');
+end;
+
+begin
+  DBMS_SCHEDULER.ENABLE ('my_job1');
+END;
+
+select job_name, program_name, job_type, job_action, schedule_name, schedule_type, repeat_interval, enabled, auto_drop, state, comments
+from user_scheduler_jobs;

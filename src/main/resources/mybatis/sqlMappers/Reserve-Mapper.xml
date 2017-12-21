@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Reserve-Mapper">
+	<select id="selectReserveList" parameterType="str" resultType="reserve">
+		select * from reserv_view 
+		where mem_pcode = #{mem_pcode}
+		order by reserv_num desc
+	</select>
+	
+	<select id="selectReserveTime" parameterType="hashmap" resultType="str">
+		select TO_CHAR(reserv_date, 'HH12:MI') from reservation
+		where doc_code = #{doc_code} 
+		and TO_CHAR(reserv_date, 'yyyy-MM-dd') = #{reserv_date}	
+	</select>
+	
+	<update id="insertReserve" parameterType="reserve">
+		insert into reservation(reserv_num, reserv_date, doc_code, mem_pcode, reserv_symptom)
+		values (seq_reservation.nextval, #{reserv_date}, #{doc_code}, #{mem_pcode}, #{reserv_symptom})
+	</update>
+	
+	<update id="deleteReserve" parameterType="hashmap" >
+		update reservation set reserv_status = #{reserv_status} where reserv_num = #{reserv_num}
+	</update>
+	
+	<select id="selectReserveByDocCode" parameterType="str" resultType="reserve">
+		select * from reserv_view
+		where doc_code = #{doc_code} 
+		and reserv_status = '예약'
+	</select>
+	
+	<select id="selectMyReserveList" parameterType="str" resultType="reserve">
+		<![CDATA[
+		select * from reserv_view 
+		where TO_DATE(trunc(RESERV_DATE),'yyyy-mm-dd') >= TO_DATE(trunc(sysdate), 'yyyy-mm-dd') and doc_code = #{doc_code}
+		and reserv_status ='예약'
+		order by RESERV_DATE asc
+		]]>
+	</select>
+	
+	<select id="selectMyReserveListCount" parameterType="str" resultType="int">
+		<![CDATA[
+		select count(reserv_num) from reserv_view 
+		where TO_DATE(trunc(RESERV_DATE),'yyyy-mm-dd') >= TO_DATE(trunc(sysdate), 'yyyy-mm-dd') and doc_code = #{doc_code}
+		and reserv_status ='예약'
+		]]>
+	</select>
+	
+	<select id="selectReserveByNum" parameterType="int" resultType="reserve">
+		select * from reserv_view where reserv_num = #{reserv_num}
+	</select>
+	
+	<select id="selectMyDiagList" parameterType="str" resultType="reserve">
+		<![CDATA[
+		select * from reserv_view 
+		where doc_code = #{doc_code}
+		and (reserv_status ='진료완료' or reserv_status ='진료대기')
+		order by case when reserv_status in('진료대기') then 0 else 1 end, 
+		reserv_date desc
+		]]>
+	</select>
+	
+	<select id="selectMyDiagListCount" parameterType="str" resultType="int">
+		<![CDATA[
+		select count(reserv_num) from reserv_view 
+		where doc_code = #{doc_code} 
+		and (reserv_status ='진료완료' or reserv_status ='진료대기') 
+		]]>
+	</select>
+	
+	<update id="updateReserveStatusOk" parameterType="int">
+		update reservation set reserv_status = '진료완료' where reserv_num = #{reserv_num}
+	</update>
+</mapper>

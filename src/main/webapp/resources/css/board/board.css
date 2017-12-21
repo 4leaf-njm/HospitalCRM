@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+table a {color: black; text-decoration: none;}
+table a:hover {text-decoration: underline; color: black;}
+table a:visited {color: black;}
+table a:active {color: black;}
+table a > i.fa-floppy-o {display:inline-block; margin-left: 10px;}
+
+.box {margin-top: 20px;}
+.box .box-body {min-height: 380px;}
+.box .form-control.one {display: inline-block; width: 120px;}
+.box .form-control.two {display: inline-block; width: 170px;}
+.box #searchBtn {display: inline-block;  margin: 10px 6px}
+.box #searchBtn i {display: inline-block; margin-right: 3px;}
+.box table .title {text-decoration: none; color: black;}
+.box table .title:hover {text-decoration: underline;}
+
+.table-content {width: 1100px; margin: 0 auto;}
+.table-content tr {height: 60px;}
+.table-content tr:last-child {height: 300px;}
+.table-content tr:last-child > td {text-align: left; vertical-align: top;}
+.table-content tr>th {background: rgba(244, 244, 244, 0.74); width: 130px;}
+.table-content tr>th, 
+.table-content tr>td {width: 130px; vertical-align: middle !important; font-size: 15px;  border: 1px solid #ddd !important; font-family: 'Nanum Barun Gothic', sans-serif !important;}
+
+#content {resize:none; width: 100%; border: 0; padding: 10px;}
+
+input[type="text"]:read-only,
+textarea[readonly="readonly"] { background-color: #F6F6F6; }
+textarea {outline: none;}
+.box-footer .btn_box{ margin: 5px 3px;}
+.box-footer button{margin: 0 2px;}
+
+.upload-name {
+	display: inline-block; width: 540px; padding: .5em .75em; font-size: inherit; font-family: inherit; line-height: normal; vertical-align: middle; 
+	background-color: #f5f5f5; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; -webkit-appearance: none; 
+	-moz-appearance: none; appearance: none;
+}
+.upload-hidden {
+	position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; 
+}
+.upload-label {
+	display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; 
+	background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em;
+	margin-left: 10px; margin-top: 5px;
+}
+
+.input-checkbox-group .input-checkbox {margin-left: 10px;}
+.answer {display: none; margin-top: 15px; width: 1100px; margin-left: 20px;}
+.answer textarea {resize: none;}
+
+.content_box {display: inline-block; }
+.answer_box {display: none;}
+.radio{display:inline-block; margin-left:15px;}
+

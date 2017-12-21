@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<bean id="doctorDAO" class="com.sysout.crm.dao.impl.DoctorDAOImpl"
+		p:sqlSession-ref="sqlSession"
+		/>
+	
+	<bean id="reserveDAO" class="com.sysout.crm.dao.impl.ReserveAndDoctorDAOImpl"
+		p:sqlSession-ref="sqlSession"
+		/>
+		
+	<bean id="diagDAO" class="com.sysout.crm.dao.impl.DiagAndDoctorDAOImpl" 
+		p:sqlSession-ref="sqlSession"
+		/>
+		
+	<bean id="departDAO" class="com.sysout.crm.dao.impl.DepartDAOImpl"
+		p:sqlSession-ref="sqlSession"
+		/>
+		
+	<bean id="scheduleDAO" class="com.sysout.crm.dao.impl.ScheduleDAOImpl"
+		p:sqlSession-ref="sqlSession"
+		/>
+		
+	<bean id="memberDAO" class="com.sysout.crm.dao.impl.MemberDAOImpl" 
+		p:sqlSession-ref="sqlSession"
+		/>
+		
+	<bean id="adminDAO" class="com.sysout.crm.dao.impl.AdminDAOImpl"
+		p:sqlSession-ref="sqlSession"
+		/>
+	
+	<bean id="noticeDAO" class="com.sysout.crm.dao.impl.NoticeDAOImpl"
+		p:session-ref="sqlSession"
+		/>
+		
+	<bean id="qnaDAO" class="com.sysout.crm.dao.impl.QnaDAOImpl"
+		p:session-ref="sqlSession"
+		/>
+	
+	<bean id="memberService" class="com.sysout.crm.service.impl.MemberServiceImpl"
+		p:reserveDAO-ref="reserveDAO"
+		p:diagDAO-ref="diagDAO"
+		p:scheduleDAO-ref="scheduleDAO"
+		p:memberDAO-ref="memberDAO"
+		/>
+	
+	<bean id="doctorService" class="com.sysout.crm.service.impl.DoctorServiceImpl"
+		p:scheduleDAO-ref="scheduleDAO"
+		p:reserveDAO-ref="reserveDAO"
+		p:departDAO-ref="departDAO"
+		p:doctorDAO-ref="doctorDAO"
+		p:diagDAO-ref="diagDAO"
+		/>
+		
+	<bean id="adminService" class="com.sysout.crm.service.impl.AdminServiceImpl"
+		p:adminDAO-ref="adminDAO"
+		p:memberDAO-ref="memberDAO"
+		p:doctorDAO-ref="doctorDAO"
+		p:scheduleDAO-ref="scheduleDAO"
+		/>
+	
+	<bean id="introService" class="com.sysout.crm.service.impl.IntroServiceImpl"
+		p:departDAO-ref="departDAO"
+		p:doctorDAO-ref="doctorDAO"
+		/>
+		
+	<bean id="noticeService" class="com.sysout.crm.service.impl.NoticeServiceImpl"
+		p:noticeDAO-ref="noticeDAO"
+		/>
+		
+	<bean id="qnaService" class="com.sysout.crm.service.impl.QnaServiceImpl"
+		p:qnaDAO-ref="qnaDAO"
+		/>
+</beans>

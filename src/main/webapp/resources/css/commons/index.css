@@ -1,0 +1,420 @@
+@CHARSET "UTF-8";
+
+ul, li {
+	list-style: none;
+}
+
+.index_box {
+	margin : 40px auto;
+	width: 1205px;
+}
+
+.doctor_box {
+	margin : 0 auto;
+	width: 1000px;
+}
+
+.smc-main .container .inner-wrap {
+	padding-top: 0;
+	background-color: transparent;
+}
+
+.header .inner-wrap, #footer .inner-wrap, .container .inner-wrap,
+	.inner-section {
+	clear: both;
+	margin: 0 auto;
+}
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.crucial_inter_qlist .medical_info_area li.doctor_dept_srch {
+	background-color: #697282;
+}
+
+.crucial_inter_qlist .medical_info_area li.doctor_dept_srch.onfirst {
+	background-position: -5px 141px;
+}
+
+.medical_info_area li.doctor_dept_srch, .crucial_inter_qlist .medical_info_area li.online_reser_frm,
+	.crucial_inter_qlist .medical_info_area li.quick_online_reser {
+	background:
+		url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/img_set_renewmain03.png)
+		no-repeat 0 146px;
+}
+
+.medical_info_area .customer_interaction_list>li {
+	position: relative;
+	background-color: #2261ab;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li {
+	float: left;
+	width: 312px;
+	height: 270px;
+	color: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.medical_info_area .customer_interaction_list .inner_clickparent {
+	padding-top: 45px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.medical_info_area .customer_interaction_list .doctor_dept_srch h4 {
+	width: 193px;
+}
+
+.crucial_inter_qlist .medical_info_area .customer_interaction_list h4 {
+	margin: 0 auto 19px auto;
+	height: 26px;
+}
+
+.crucial_inter_qlist .customer_interaction_list > li h4, .crucial_inter_qlist .customer_interaction_list > li .qlink_title, .crucial_inter_qlist .customer_interaction_list > li .outer_exam_history {
+    background: url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/img_set_renewmain.png) no-repeat 0 0;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li h4 {
+	margin: 0 auto;
+}
+
+.medical_info_area .customer_interaction_list>li p.desc,
+	.customer_interaction_list>li.outer_exam_history p.desc {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li p.desc {
+	font-size: 14px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li .btn_itr_srch {
+	display: block;
+	background: none;
+	width: 118px;
+	margin: 59px auto 0 auto;
+	border: 1px solid #fff;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	line-height: 40px;
+	height: 40px;
+}
+
+.medical_info_area .none_block_box.second {
+	position: relative;
+	width: 257px;
+	height: 45px;
+	margin: 0 auto;
+	border: 1px solid #f9e03d;
+	border-bottom-width: 2px;
+	background-color: #fff;
+	z-index: 401;
+}
+
+.none_block_box.off {
+	display: none;
+}
+
+.medical_info_area .none_block_box.second input[type="text"] {
+	float: left;
+	width: 211px;
+	padding-left: 13px;
+	background-color: #fff;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	height: 42px;
+	line-height: 42px;
+	font-size: 18px;
+	color: #697282;
+	border: 0 none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.medical_info_area .none_block_box.second .btn_srch_doc {
+	float: right;
+	margin: 1px 1px 1px 0;
+	width: 43px;
+	height: 33px;
+	background:
+		url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/btn_srch_doc.gif)
+		no-repeat 20px 13px;
+	height: 33px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li a {
+	display: block;
+	color: #fff;
+}
+
+.crucial_inter_qlist .medical_info_area li.online_reser_frm {
+	background-color: #0085d2;
+	background-position: -319px 146px;
+}
+
+.crucial_inter_qlist .medical_info_area li.online_reser_frm.on {
+	background-position: -324px 141px;
+}
+
+.medical_info_area .customer_interaction_list .online_reser_frm h4 {
+	width: 162px;
+	background-position: 0 -115px;
+}
+
+.crucial_inter_qlist .medical_info_area li.quick_online_reser {
+	background-position: -666px 152px;
+	background-color: #2261ab;
+}
+.crucial_inter_qlist .medical_info_area li.doctor_dept_srch.on, li.quick_online_reser.on, li.online_reser_frm.on, .crucial_inter_qlist .medical_info_area li.doctor_dept_srch.onfirst {
+	border: 3px solid yellow;
+}
+
+.medical_info_area .customer_interaction_list .quick_online_reser h4 {
+	width: 185px;
+	background-position: 0 -224px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li .btn_itr_srch.type02
+{
+	width: 150px;
+	margin-top: 12px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li.outer_exam_history {
+	width: 300px;
+	background-color: #15a293;
+	width: 468px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li.outer_exam_history a
+{
+	display: block;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li.outer_exam_history h4
+{
+	background-position: 0 -333px;
+}
+
+.crucial_inter_qlist .customer_interaction_list > li.outer_exam_history.exam_history_type02 h4 {
+    background-position: 0 -603px;
+}
+
+.crucial_inter_qlist .customer_interaction_list>li.outer_exam_history h4
+{
+	width: 143px;
+	height: 143px;
+	margin-top: 35px;
+	margin-bottom: 15px;
+}
+
+.crucial_pages_links .customer_interaction_list>li {
+	width: 468px;
+}
+
+
+
+.wrapper_using_bodywidth {
+	padding-top: 21px;
+	padding-bottom: 46px;
+	background-color: #f7f7f7;
+}
+
+.container .inner-wrap {
+	background: #f7f7f9;
+}
+
+.header .inner-wrap, #footer .inner-wrap, .container .inner-wrap,
+	.inner-section {
+	clear: both;
+	min-width: 1000px;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.outer_notice_etc .wrap_news_notice {
+	float: left;
+	width: 440px;
+	margin-left: 63px;
+	margin-right: 40px;
+	position: relative;
+}
+
+.outer_notice_etc h4 {
+	margin-bottom: 11px;
+	font-weight: bold;
+	font-size: 26px;
+	color: #555;
+}
+
+.outer_notice_etc .news_notice_list {
+	box-sizing: border-box;
+	padding: 11px 22px 0 15px;
+	height: 230px;
+	background-color: #fff;
+}
+
+.outer_notice_etc .news_notice_list, .outer_notice_etc .cv_guide_list {
+	border: 1px solid #bfbfbf;
+}
+
+.outer_notice_etc .news_notice_list li {
+	margin-top:5px;
+	overflow: hidden;
+}
+
+.outer_notice_etc .news_notice_list li a, .outer_notice_etc .news_notice_list li .nntxt
+	{
+	font-size: 18px;
+	color: #666;
+}
+
+.outer_notice_etc .news_notice_list li span.item02, .outer_notice_etc .news_notice_list li span.item99
+	{
+	background-color: #f7776a;
+}
+
+.outer_notice_etc .news_notice_list li span {
+	float: left;
+	margin-right: 7px;
+	color: #fff;
+	background-color: #46d4c8;
+	text-align: center;
+	border-radius: 4px;
+	font-size:14px;
+}
+
+.outer_notice_etc .news_notice_list li .nntxt {
+	width: 221px;
+}
+
+.outer_notice_etc .news_notice_list li .nntxt {
+	float: left;
+	width: 220px;
+	margin-top: -1px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	letter-spacing: -1px;
+}
+
+.outer_notice_etc .news_notice_list li .date {
+	float: right;
+	width: 68px;
+	color: #888;
+	font-size: 14px;
+	letter-spacing: -1px;
+}
+
+.outer_notice_etc .btn_goto_more {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 10px;
+	color: #44484f;
+	background: #e4e7ea;
+	font-size: 12px;
+}
+
+.outer_notice_etc .wrap_cv_guide {
+	float: left;
+	width: 576px;
+}
+
+.wrap_cv_guide .cv_guide_list {
+	box-sizing: border-box;
+	padding-top: 38px;
+	width : 600px;
+	height: 230px;
+	background-color: #fff;
+}
+
+.wrap_cv_guide .cv_guide_list li {
+	margin-left: 18px;
+}
+
+.wrap_cv_guide .cv_guide_list li, .wrap_cv_guide .cv_guide_list a {
+	float: left;
+	width: 99px;
+}
+
+.wrap_cv_guide .cv_guide_list li>a:before {
+	width: 56px;
+	height: 56px;
+	background-position: 0 0;
+	background-size: 82px 577px;
+}
+
+.wrap_cv_guide .cv_guide_list li>a:before {
+	content: "";
+	width: 68px;
+	height: 68px;
+	display: block;
+	margin: 0 auto;
+	background:
+		url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/img_set_renewmain02.png)
+		no-repeat 0 0;
+}
+
+.wrap_cv_guide .cv_guide_list li .page_tit {
+	display: block;
+	margin: 27px auto 0 auto;
+	font-size: 18px;
+	color: #444;
+	text-align: center;
+	letter-spacing: -1px;
+}
+
+.wrap_cv_guide .cv_guide_list li {
+	margin-left: 15px;
+}
+
+.wrap_cv_guide .cv_guide_list li, .wrap_cv_guide .cv_guide_list a {
+	width: 90px;
+}
+
+.cv_guide_list li.hospitalizationInfo>a:before {
+	background:
+		url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/ico_hospitalizationInfo.png)
+		no-repeat 0 0;
+}
+
+.wrap_cv_guide .cv_guide_list li:nth-child(3) > a:before {
+    background-position: 0 -143px;
+}
+
+.wrap_cv_guide .cv_guide_list li:nth-child(4) > a:before {
+    background:
+		url(http://www.samsunghospital.com/_newhome/ui/home/static/img/renew_main/ico_hospitalizationInfo.png)
+		no-repeat 0 0;
+}
+
+.wrap_cv_guide .cv_guide_list li:nth-child(5) > a:before {
+    background-position: 0 -286px;
+}
+
+h3 {
+	margin-top: 5px;
+	text-align : center;
+}
+.descsrch {
+	height: 40px;
+}
+.descbox {
+	margin-top: 10px;
+	height: 75px;
+}

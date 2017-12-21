@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.leftButtonRow{float: left; display: inline-block !important;}
+.seachRow{float: right; display: inline-block !important;}
+.box-body{min-height: 400px;}
+.emp{color: red !important;}
+table{text-align: center;}
+th{text-align: center;}

@@ -1,0 +1,6 @@
+db 익스포트
+exp sysout/sysout file="c:\sysout_backup.dmp"
+파일이름은 자신이 마음대로 설정
+
+db 임포트
+imp system/password fromuser=sysout touser=sysout file="c:\파일경로\이름.dmp"

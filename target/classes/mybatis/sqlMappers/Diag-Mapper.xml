@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Diag-Mapper">
+	<select id="selectDiagList" parameterType="str" resultType="diag">
+		select * from diag_view 
+		where mem_pcode = #{mem_pcode}
+		order by diag_num desc
+	</select>
+	
+	<select id="selectDiagByNum" parameterType="int" resultType="diag">
+		select * from diag_view
+		where diag_num = #{diag_num}
+	</select>
+	
+	<select id="selectDiagListCount" parameterType="str" resultType="int">
+		select count(*) from diag_view
+		where mem_pcode = #{mem_pcode}
+	</select>
+	
+	<select id="selectDiagByReservNum" parameterType="int" resultType="diag">
+		select * from diag_view
+		where reserv_num = #{reserv_num}
+	</select>
+	
+	<update id="insertDiag" parameterType="diag">
+		insert into diagnosis(diag_num, mem_pcode, doc_code, diag_disease, diag_content, reserv_num)
+		values(SEQ_DIAGNOSIS.nextval, #{mem_pcode}, #{doc_code}, #{diag_disease}, #{diag_content}, #{reserv_num})
+	</update>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Schedule-Mapper">
+	<select id="selectScheduleList" resultType="schedule">
+		select * from schedule_view where not schedule_del_yn = 'Y' order by case when schedule_permit_yn in('R') then 0 else 1 end, schedule_num desc
+	</select>
+
+	<select id="selectScheduleByDate" parameterType="hashmap" resultType="schedule">
+		select * from schedule_view where doc_code=#{doc_code}
+		and TO_CHAR(schedule_start_date, 'yyyy-MM') = #{s_date}
+		and schedule_permit_yn = 'Y'
+	</select>
+	
+	<select id="selectScheduleListCount" resultType="int">
+		select count(schedule_num) from schedule_view where not schedule_del_yn = 'Y'
+	</select>
+	
+	<select id="selectScheduleListByDocCode" parameterType="str" resultType="schedule">
+		select * from schedule_view where doc_code = #{doc_code}
+	</select>
+	
+	<insert id="insertSchedule" parameterType="schedule">
+		insert into schedule(schedule_num, schedule_start_date, schedule_end_date, schedule_reason, doc_code) 
+		values(seq_schedule.nextval, #{schedule_start_date}, #{schedule_end_date}, #{schedule_reason}, #{doc_code})
+	</insert>
+	
+	<select id="selectScheduleByNum" parameterType="int" resultType="schedule">
+		select * from schedule_view where schedule_num = #{schedule_num}		
+	</select>
+	
+	<update id="permitSchedule" parameterType="int">
+		update schedule set schedule_permit_yn='Y' where schedule_num = #{schedule_num}	
+	</update>
+	
+	<update id="refusalSchedule" parameterType="int">
+		update schedule set schedule_permit_yn='N' where schedule_num = #{schedule_num}	
+	</update>
+	
+	<update id="deleteSchedule" parameterType="int">
+		update schedule set schedule_del_yn='Y' where schedule_num = #{schedule_num}
+	</update>
+</mapper> 

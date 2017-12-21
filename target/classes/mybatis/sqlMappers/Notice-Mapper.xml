@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notice-Mapper">
+	
+	<select id="selectNoticeByNum" parameterType="int" resultType="notice">
+		select * from notice where notice_num=#{notice_num}
+	</select>
+	
+	<select id="selectNoticeList" resultType="notice">
+		<![CDATA[
+			select * from notice
+			where notice_num>0
+			order by notice_num desc, notice_reg_date desc
+		]]> 
+	</select>
+	
+	<update id="insertNotice" parameterType="notice">
+		insert into notice (notice_num, admin_code, notice_title, notice_content, notice_file) 
+		values(seq_notice.nextval, #{admin_code}, #{notice_title}, #{notice_content}, #{notice_file, jdbcType=VARCHAR})
+	</update>
+	
+	<update id="updateNotice" parameterType="notice">
+		update notice set notice_title=#{notice_title}, notice_content=#{notice_content}
+		where notice_num=#{notice_num}
+	</update>
+	
+	<update id="deleteNotice" parameterType="int">
+		delete from notice where notice_num=#{notice_num}
+	</update>
+
+	
+<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and notice_title like '%'||#{keyword}||'%' <!-- CONCAT(CONCAT('%', #{keyword}), '%') -->
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and notice_content like '%'||#{keyword}||'%'
+			</if>
+			
+			<if test="searchType == 'tc'.toString()">
+				and (notice_title like '%'||#{keyword}||'%' or
+				   notice_content like '%'||#{keyword}||'%')
+			</if>
+			
+		</if>
+	</sql>
+	<select id="selectNoticeListSearch" resultType="notice">
+		<![CDATA[
+			select *
+			from notice
+			where notice_num > 0 
+		]]>
+			<include refid="search"></include>
+			order by notice_num desc
+		
+	</select>
+	
+	<select id="selectNoticeListSearchCount" resultType="int">
+		<![CDATA[
+			select count(notice_num)
+			from notice
+			where notice_num>0
+		]]>
+			<include refid="search"></include>
+	</select>
+	
+	<update id="updateUpHit" parameterType="int">
+		update notice set notice_hit = notice_hit+1 
+		where notice_num = #{notice_num}
+	</update>
+	
+</mapper>
